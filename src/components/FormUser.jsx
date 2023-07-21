@@ -12,7 +12,6 @@ const FormUser = ({createNewUser, updateInfo, updateUserById, setUpdateInfo, clo
     }, [updateInfo])
     
     const submit = (data) => {
-        console.log(data)
         if (updateInfo) {
           updateUserById('/users', updateInfo.id, data)
           setUpdateInfo()

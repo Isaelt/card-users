@@ -3,6 +3,7 @@ import './App.css'
 import useFecth from './hooks/useFecth'
 import UserCard from './components/UserCard'
 import FormUser from './components/FormUser'
+import ModalConfirm from './components/ModalConfirm'
 
 function App() {
 
@@ -10,9 +11,11 @@ function App() {
 
   const [closeForm, setCloseForm] = useState(true)
 
+  const [closeModalConfirm, setcloseModalConfirm] = useState(true)
+
   const baseUrl = 'https://users-crud.academlo.tech'
 
-  const [ users, getAllUsers, createNewUser, deleteUserById, updateUserById ] = useFecth(baseUrl, setCloseForm)
+  const [ users, getAllUsers, createNewUser, deleteUserById, updateUserById ] = useFecth(baseUrl, setCloseForm, setcloseModalConfirm)
 
   useEffect(() => {
     getAllUsers('/users')
@@ -21,7 +24,6 @@ function App() {
   const handleOpenForm = () => {
     setCloseForm(false)
   }
-  
 
   return (
     <div className='user-container'>
@@ -50,6 +52,10 @@ function App() {
           ))
         }
       </div>
+      <ModalConfirm
+      closeModalConfirm={closeModalConfirm}
+      setcloseModalConfirm={setcloseModalConfirm}
+      />
     </div>
   )
 }

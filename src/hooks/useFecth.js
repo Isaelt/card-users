@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 
-const useFecth = (baseUrl, callback) => {
+const useFecth = (baseUrl, callback, setCloseModal) => {
 
     const [infoApi, setInfoApi] = useState()
 
@@ -20,7 +20,6 @@ const useFecth = (baseUrl, callback) => {
         const url = `${baseUrl}${path}/`
         axios.post(url, data)
           .then(res => { 
-            console.log(res.data)
             setInfoApi([...infoApi, res.data ])
             callback(true)
         })
@@ -32,9 +31,9 @@ const useFecth = (baseUrl, callback) => {
         const url = `${baseUrl}${path}/${id}/`
         axios.delete(url)
           .then(res => { 
-            console.log(res.data)
             const infoApiFiltered = infoApi.filter(e => e.id !== id)
             setInfoApi(infoApiFiltered)
+            setCloseModal(false)
         })
           .catch(err => console.log(err))
     }
@@ -44,7 +43,6 @@ const useFecth = (baseUrl, callback) => {
         const url = `${baseUrl}${path}/${id}/`
         axios.patch(url, data)
           .then(res => { 
-            console.log(res.data)
             const infoApiMapped = infoApi.map(e => e.id === id ? res.data : e)
             setInfoApi(infoApiMapped)
             callback(true)
