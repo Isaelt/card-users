@@ -1,0 +1,33 @@
+
+
+.formuser__btnn{
+    width: 100%;
+    max-width: 10rem;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    background-color: rgb(22, 110, 218);
+    color: aliceblue;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    position: absolute;
+    right: 1em;
+    top: 0;
+ }
+ .formuser__btnn:hover{
+    filter: brightness(1.2);
+}
+.title{
+    position: relative;
+    left: 1em;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+}
+
+.user__container{
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
