@@ -1,9 +1,11 @@
 import './styles/UserCard.css'
 
-const UserCard = ({user, deleteUserById, setUpdateInfo, handleOpenForm}) => {
+const UserCard = ({user, deleteUserById, setUpdateInfo, handleOpenForm, setUserDeleted}) => {
 
   const handleDelete = ( ) => {
     deleteUserById('/users', user.id)
+    const nameDeleted = `${user.first_name} ${user.last_name}`
+    setUserDeleted(nameDeleted)
   }
 
   const handleUpdate = () => {

@@ -22,6 +22,7 @@ const useFecth = (baseUrl, callback, setCloseModal) => {
           .then(res => { 
             setInfoApi([...infoApi, res.data ])
             callback(true)
+            setCloseModal(false)
         })
           .catch(err => console.log(err))
     }

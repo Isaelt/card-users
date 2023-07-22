@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import './styles/FormUser.css'
 
-const FormUser = ({createNewUser, updateInfo, updateUserById, setUpdateInfo, closeForm, setCloseForm}) => {
+const FormUser = ({createNewUser, updateInfo, updateUserById, setUpdateInfo, closeForm, setCloseForm, setUserCreated}) => {
 
     const { register, reset, handleSubmit } = useForm()
 
@@ -19,6 +19,7 @@ const FormUser = ({createNewUser, updateInfo, updateUserById, setUpdateInfo, clo
           
         }
         createNewUser('/users', data)
+        setUserCreated(data.first_name)
         reset({
             first_name: '',
             last_name: '',

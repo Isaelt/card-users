@@ -13,6 +13,10 @@ function App() {
 
   const [closeModalConfirm, setcloseModalConfirm] = useState(true)
 
+  const [userDeleted, setUserDeleted] = useState()
+
+  const [userCreated, setUserCreated] = useState()
+
   const baseUrl = 'https://users-crud.academlo.tech'
 
   const [ users, getAllUsers, createNewUser, deleteUserById, updateUserById ] = useFecth(baseUrl, setCloseForm, setcloseModalConfirm)
@@ -38,6 +42,7 @@ function App() {
       setUpdateInfo={setUpdateInfo}
       closeForm={closeForm}
       setCloseForm={setCloseForm}
+      setUserCreated={setUserCreated}
       />
       <div className='user__container'>
         {
@@ -48,6 +53,7 @@ function App() {
             deleteUserById={deleteUserById}
             setUpdateInfo={setUpdateInfo}
             handleOpenForm={handleOpenForm}
+            setUserDeleted={setUserDeleted}
             />
           ))
         }
@@ -55,6 +61,10 @@ function App() {
       <ModalConfirm
       closeModalConfirm={closeModalConfirm}
       setcloseModalConfirm={setcloseModalConfirm}
+      userDeleted={userDeleted}
+      closeForm={closeForm}
+      setUserDeleted={setUserDeleted}
+      userCreated={userCreated}
       />
     </div>
   )
